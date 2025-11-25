@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73498483-01e0-40c9-8eed-0e6df2930f67" name="Changes" comment="" />
+    <list default="true" id="73498483-01e0-40c9-8eed-0e6df2930f67" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/CST1510 COURSE WORK 2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CST1510 COURSE WORK 2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Authentication_system.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_app/Authentication_system.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATA/intelligence_platform.db" beforeDir="false" afterPath="$PROJECT_DIR$/DATA/intelligence_platform.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DATA/it_tickets.csv" beforeDir="false" afterPath="$PROJECT_DIR$/DATA/it_tickets.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/.idea/Pages.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/1_Dashboard.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Home.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Home.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,6 +41,12 @@
       </map>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="AISelfReview" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -36,32 +55,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.main.executor": "Run",
-    "Python.users.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "C:/Users/erick/Desktop/CST1510 COURSE WORK 2/services",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.users.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/erick/Desktop/CST1510 COURSE WORK 2&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\erick\Desktop\CST1510 COURSE WORK 2\services" />
       <recent name="C:\Users\erick\Desktop\CST1510 COURSE WORK 2\project_app\data" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\erick\Desktop\CST1510 COURSE WORK 2\pages" />
+      <recent name="C:\Users\erick\Desktop\CST1510 COURSE WORK 2" />
       <recent name="C:\Users\erick\Desktop\CST1510 COURSE WORK 2\project_app" />
       <recent name="C:\Users\erick\Desktop\CST1510 COURSE WORK 2\services" />
     </key>
@@ -95,7 +118,6 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-PY-252.27397.106" />
         <option value="bundled-python-sdk-4e2b1448bda8-9a97661f3031-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.27397.106" />
       </set>
     </attachedChunks>
@@ -111,7 +133,8 @@
       <workItem from="1763720103805" duration="1681000" />
       <workItem from="1763721808803" duration="1803000" />
       <workItem from="1763723640926" duration="13000" />
-      <workItem from="1763723668094" duration="5003000" />
+      <workItem from="1763723668094" duration="7362000" />
+      <workItem from="1763757126711" duration="10000" />
     </task>
     <servers />
   </component>
@@ -124,6 +147,10 @@
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/project_app/incidents.py</url>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/pages/1_Dashboard.py</url>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
