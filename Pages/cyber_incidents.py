@@ -139,7 +139,7 @@ with tab2:
         )
 
         days_order = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-        heatmap = heatmap.reindex(days_order)
+        heatmap = heatmap.reindex (days_order)
 
         st.plotly_chart(px.imshow(
             heatmap,

@@ -115,10 +115,10 @@ st.divider()
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    st.page_link("pages/1_Dashboard.py", label="Cyber Incidents")
+    st.page_link("pages/it_tickets.py", label="Cyber Incidents")
 
 with col2:
-    st.page_link("pages/2_Datasets_Manager.py", label="Datasets")
+    st.page_link("pages/Datasets_metadata.py", label="Datasets")
 
 with col3:
     if st.button("Log out"):

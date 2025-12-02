@@ -77,10 +77,17 @@ if len(date_range) == 2:
         (filtered.upload_date.dt.date <= end)
     ]
 
+# Ensure slider ranges always have 2 values
+if len(row_range) == 1:
+    row_range = (row_range[0], row_range[0])
+if len(col_range) == 1:
+    col_range = (col_range[0], col_range[0])
+
 filtered = filtered[
-    filtered['rows'].between(*row_range) &
-    filtered['columns'].between(*col_range)
+    filtered['rows'].between(row_range[0], row_range[1]) &
+    filtered['columns'].between(col_range[0], col_range[1])
 ]
+
 
 
 # ----------------------- KEY METRICS -----------------------
@@ -88,8 +95,9 @@ st.subheader("Overview")
 c1, c2, c3, c4 = st.columns(4)
 c1.metric("Filtered Datasets", len(filtered))
 c2.metric("Total Rows", f"{filtered.rows.sum():,}")
-c3.metric("Total Columns", filtered.columns.sum())
+c3.metric("Total Columns", filtered['columns'].sum())
 c4.metric("Avg Rows", f"{filtered.rows.mean():,.0f}")
+
 
 # ----------------------- TABS -----------------------
 tab1, tab2, tab3, tab4 = st.tabs(["Analytics", "User Stats", "Timeline", "Details"])
@@ -148,7 +156,7 @@ with tab2:
 with tab3:
     ordered = filtered.sort_values('upload_date')
     ordered['cumulative_rows'] = ordered.rows.cumsum()
-    ordered['cumulative_ds'] = range(1, len(ordered) + 1)
+    ordered['cumulative_ds'] = range(1,len(ordered) + 1)
 
     st.plotly_chart(
         px.line(ordered, x="upload_date", y="rows", markers=True,

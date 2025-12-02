@@ -3,7 +3,6 @@ import sys
 import os
 import time
 
-# Import fix
 sys.path.append(os.path.join(os.path.dirname(__file__), 'project_app', 'services'))
 from project_app.Authentication_system import *
 
@@ -44,9 +43,8 @@ if "role" not in st.session_state:
     st.session_state.role = "user"
 
 
-# ------------------------------
 # AUTO LOGIN USING COOKIE
-# ------------------------------
+
 cookie_user = get_cookie("username")
 
 if cookie_user and not st.session_state.logged_in:
@@ -55,14 +53,13 @@ if cookie_user and not st.session_state.logged_in:
     st.session_state.role = get_user_role(cookie_user)
 
 
-# ------------------------------
 # MAIN PAGE START
-# ------------------------------
-st.title("🔐 Multi-Domain Intelligence Platform")
 
-# ---------------------------------------------------------
+st.title("Erick's Intelligence Platform")
+
+
 # If logged in → show dashboard + logout on MAIN PAGE
-# ---------------------------------------------------------
+
 if st.session_state.logged_in:
 
     st.success(f"Welcome, **{st.session_state.username}**!")
@@ -109,9 +106,9 @@ if st.session_state.logged_in:
     st.stop()
 
 
-# ---------------------------------------------------------
+
 # NOT LOGGED IN → Show LOGIN + REGISTER TABS on MAIN PAGE
-# ---------------------------------------------------------
+
 st.info("Please log in to continue.")
 
 tab_login, tab_register = st.tabs(["Login", "Register"])

@@ -7,15 +7,6 @@
     <list default="true" id="73498483-01e0-40c9-8eed-0e6df2930f67" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/CST1510 COURSE WORK 2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CST1510 COURSE WORK 2.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Authentication_system.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_app/Authentication_system.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DATA/intelligence_platform.db" beforeDir="false" afterPath="$PROJECT_DIR$/DATA/intelligence_platform.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DATA/it_tickets.csv" beforeDir="false" afterPath="$PROJECT_DIR$/DATA/it_tickets.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/.idea/Pages.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/1_Dashboard.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Pages/Home.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Home.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -83,6 +74,7 @@
       <recent name="C:\Users\erick\Desktop\CST1510 COURSE WORK 2\project_app\data" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\erick\Desktop\CST1510 COURSE WORK 2\project_app\services" />
       <recent name="C:\Users\erick\Desktop\CST1510 COURSE WORK 2\pages" />
       <recent name="C:\Users\erick\Desktop\CST1510 COURSE WORK 2" />
       <recent name="C:\Users\erick\Desktop\CST1510 COURSE WORK 2\project_app" />
