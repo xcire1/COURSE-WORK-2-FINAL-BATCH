@@ -3,6 +3,7 @@ from pathlib import Path
 import sqlite3
 import pandas as pd
 
+import project_app
 from project_app.data.db import connect_database
 
 #     CONSTANTS
@@ -147,4 +148,4 @@ def migrate_users_from_file(filepath="DATA/users.txt"):
 
     conn.commit()
     conn.close()
-    print(f"Migrated {migrated_count} users from {filepath.name}")
+    print(f"Migrated {migrated_count} users from {filepath}")

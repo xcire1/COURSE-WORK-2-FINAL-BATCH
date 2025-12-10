@@ -4,12 +4,10 @@ from typing import Dict, Tuple, List, Optional
 
 # USERS_FILE will be located in project_app/services/users.txt
 USERS_FILE = Path(__file__).resolve().parent / "services" / "users.txt"
-USERS_FILE.parent.mkdir(parents=True, exist_ok=True)  # ensure services/ directory exists
+USERS_FILE.parent.mkdir(parents=True, exist_ok=True)  # ensure services directory exists
 
 
-# -----------------------
-# Low-level helpers
-# -----------------------
+# Comments: Low level helpers
 def _ensure_users_file():
     """Make sure users.txt exists."""
     if not USERS_FILE.exists():
@@ -19,7 +17,7 @@ def _ensure_users_file():
 def _parse_user_line(line: str) -> Tuple[str, str, str]:
     """
     Parse a line from users.txt into (username, hashed_password, role).
-    Backwards-compatible: if role missing, defaults to 'user'.
+    Backwards compatible: if role missing, defaults to user.
     """
     parts = line.strip().split(",")
 
@@ -42,9 +40,7 @@ def _format_user_line(username: str, hashed: str, role: str) -> str:
     return f"{username},{hashed},{role}\n"
 
 
-# -----------------------
-# Password utilities
-# -----------------------
+# Comments: Password utilities
 def hash_password(plain_text_password: str) -> str:
     password_bytes = plain_text_password.encode("utf-8")
     salt = bcrypt.gensalt()
@@ -61,9 +57,7 @@ def verify_password(plain_text_password: str, hashed_password: str) -> bool:
         return False
 
 
-# -----------------------
-# User storage operations
-# -----------------------
+# Comments: User storage operations
 def load_users() -> Dict[str, Tuple[str, str]]:
     """
     Load users into dict: {username: (hashed_password, role)}
@@ -97,14 +91,12 @@ def save_all_users(users: Dict[str, Tuple[str, str]]) -> None:
 
 
 def get_all_users() -> List[Dict[str, str]]:
-    """Return list of users WITHOUT passwords."""
+    """Return list of users without passwords."""
     users = load_users()
     return [{"username": u, "role": r} for u, (_, r) in users.items()]
 
 
-# -----------------------
-# Public API
-# -----------------------
+# Comments: Public API
 def user_exists(username: str) -> bool:
     return username in load_users()
 
@@ -167,9 +159,13 @@ def set_role(username: str, role: str) -> bool:
     return True
 
 
-# -----------------------
-# Validation
-# -----------------------
+# Comments: Streamlit admin wrapper
+def update_user_role(username: str, role: str) -> bool:
+    """Wrapper used by the Streamlit admin panel."""
+    return set_role(username, role)
+
+
+# Comments: Validation
 def validate_username(username: str) -> Tuple[bool, str]:
     if not username:
         return False, "Username cannot be empty."
@@ -192,9 +188,7 @@ def validate_password(password: str) -> Tuple[bool, str]:
     return True, ""
 
 
-# -----------------------
-# Optional CLI Inspect Mode
-# -----------------------
+# Comments: Optional CLI test mode
 if __name__ == "__main__":
     print("Authentication helper module.")
     print("Users file location:", USERS_FILE)
