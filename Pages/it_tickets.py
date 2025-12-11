@@ -3,12 +3,12 @@ import pandas as pd
 import plotly.express as px
 from datetime import datetime
 import os
+import numpy as np
 
 st.set_page_config(page_title="IT Support Tickets", layout="wide")
 
-# ---------------------------
 # PERSISTENT SESSION
-# ---------------------------
+
 @st.cache_resource
 def persistent_session():
     return {"logged_in": False, "username": ""}
@@ -24,9 +24,9 @@ def update_persistent_session(logged_in, username):
     session["logged_in"] = logged_in
     session["username"] = username
 
-# ---------------------------
 # LOGIN CHECK
-# ---------------------------
+
+
 if not st.session_state.logged_in:
     st.error("You must be logged in to view the dashboard.")
     if st.button("Go to login page"):
@@ -36,9 +36,9 @@ if not st.session_state.logged_in:
 st.title("IT Support Tickets Dashboard")
 st.success(f"Welcome, {st.session_state.get('username', 'User')}!")
 
-# ---------------------------
+
 # CSV UPLOAD
-# ---------------------------
+
 UPLOAD_FOLDER = "uploaded_tickets"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
@@ -53,9 +53,9 @@ if uploaded_file:
     except Exception as e:
         st.error(f"Error uploading CSV: {e}")
 
-# ---------------------------
+
 # LOAD DATA
-# ---------------------------
+
 available_files = ["DATA/it_tickets.csv"] + [f for f in os.listdir(UPLOAD_FOLDER) if f.endswith(".csv")]
 selected_file = st.selectbox("Select dataset to manage", available_files)
 
@@ -75,9 +75,9 @@ if df.empty:
     st.warning("No IT tickets data found.")
     st.stop()
 
-# ---------------------------
+
 # SIDEBAR FILTERS
-# ---------------------------
+
 with st.sidebar:
     st.header("Filters")
     selected_priority = st.selectbox("Priority", ['All'] + sorted(df['priority'].unique().tolist()))
@@ -86,9 +86,8 @@ with st.sidebar:
     min_date, max_date = df['created_at'].min().date(), df['created_at'].max().date()
     date_range = st.date_input("Date Range", value=(min_date, max_date), min_value=min_date, max_value=max_date)
 
-# ---------------------------
 # APPLY FILTERS
-# ---------------------------
+
 filtered_df = df.copy()
 if selected_priority != 'All':
     filtered_df = filtered_df[filtered_df['priority'] == selected_priority]
@@ -100,18 +99,101 @@ if len(date_range) == 2:
     start_date, end_date = date_range
     filtered_df = filtered_df[(filtered_df['created_at'].dt.date >= start_date) & (filtered_df['created_at'].dt.date <= end_date)]
 
-# ---------------------------
+
+# 🔍 AI INSIGHTS SECTION (ADDED)
+
+st.header("🔍 AI-Powered Insights")
+
+insights = []
+
+# 1. Ticket surge detection
+tickets_per_day = filtered_df.groupby('created_date')['ticket_id'].count()
+if len(tickets_per_day) > 3:
+    mean_load = tickets_per_day.mean()
+    today_load = tickets_per_day.iloc[-1]
+    if today_load > mean_load * 1.5:
+        insights.append(f"⚠️ Ticket surge detected: {today_load} tickets today (vs avg {mean_load:.1f}).")
+    else:
+        insights.append("✔️ No unusual ticket surge detected.")
+
+# 2. SLA risk prediction
+if len(filtered_df):
+    sla_risk = len(filtered_df[filtered_df['resolution_time_hours'] > 40]) / len(filtered_df)
+    if sla_risk > 0.25:
+        insights.append(f"⚠️ High SLA breach risk: {sla_risk*100:.1f}% of tickets are nearing the 48-hour limit.")
+    else:
+        insights.append("✔️ SLA risk remains low.")
+else:
+    insights.append("No data available for SLA analysis.")
+
+# 3. Staff performance anomalies
+if len(filtered_df):
+    staff_mean = filtered_df.groupby('assigned_to')['resolution_time_hours'].mean()
+    if len(staff_mean) > 1:
+        z_scores = (staff_mean - staff_mean.mean()) / staff_mean.std()
+
+        slow_staff = z_scores[z_scores > 1]
+        fast_staff = z_scores[z_scores < -1]
+
+        if len(slow_staff):
+            insights.append("🚨 Slow performance detected: " + ", ".join(
+                [f"{s} ({staff_mean[s]:.1f}h avg)" for s in slow_staff.index]
+            ))
+
+        if len(fast_staff):
+            insights.append("🏆 High performers: " + ", ".join(
+                [f"{s} ({staff_mean[s]:.1f}h avg)" for s in fast_staff.index]
+            ))
+
+# 4. High-priority open tickets
+high_priority_open = len(filtered_df[(filtered_df['priority'] == 'High') & (filtered_df['status'] == 'Open')])
+if high_priority_open > 0:
+    insights.append(f"⚠️ {high_priority_open} high-priority tickets remain open.")
+
+# 5. Root-cause keyword detection
+if 'description' in filtered_df.columns:
+    text_blob = " ".join(filtered_df['description'].astype(str).tolist()).lower()
+    keywords = {
+        "network": ["network", "wifi", "internet", "connection"],
+        "hardware": ["keyboard", "mouse", "laptop", "screen", "device"],
+        "software": ["app", "login", "software", "install", "bug"],
+        "email": ["email", "outlook", "spam", "phishing"],
+        "security": ["security", "breach", "unauthorized"]
+    }
+    detected = [cat for cat, words in keywords.items() if any(w in text_blob for w in words)]
+
+    if detected:
+        insights.append("🧠 Detected issue categories: " + ", ".join([d.title() for d in detected]))
+
+# 6. Trend analysis
+if len(tickets_per_day) > 4:
+    first, last = tickets_per_day.iloc[0], tickets_per_day.iloc[-1]
+    if last > first:
+        insights.append(f"📈 Ticket volume trending upward ({first} → {last}).")
+    elif last < first:
+        insights.append(f"📉 Ticket volume trending downward ({first} → {last}).")
+
+# 7. Natural-language summary
+if len(filtered_df):
+    insights.append(
+        f"Summary: {len(filtered_df)} tickets, "
+        f"{filtered_df['resolution_time_hours'].mean():.1f}h avg resolution, "
+        f"{len(filtered_df[filtered_df['status']=='Open'])} open tickets, "
+        f"{len(filtered_df[filtered_df['resolution_time_hours']>48])} SLA breaches."
+    )
+
+# Display insights
+for item in insights:
+    st.write("• " + item)
+
 # METRICS
-# ---------------------------
 col1, col2, col3, col4 = st.columns(4)
 col1.metric("Total Tickets", len(filtered_df))
 col2.metric("Open Tickets", len(filtered_df[filtered_df['status'] == 'Open']))
 col3.metric("Avg Resolution", f"{filtered_df['resolution_time_hours'].mean():.1f}h")
 col4.metric("SLA Breaches", len(filtered_df[filtered_df['resolution_time_hours'] > 48]))
 
-# ---------------------------
 # TABS
-# ---------------------------
 tab1, tab2, tab3 = st.tabs(["Overview", "Team Performance", "Ticket Details"])
 
 with tab1:
@@ -134,7 +216,7 @@ with tab2:
         st.plotly_chart(px.bar(pd.crosstab(filtered_df['assigned_to'], filtered_df['priority']), title="Workload by Priority", barmode='stack'), use_container_width=True)
         st.dataframe(filtered_df.groupby('assigned_to').agg({'ticket_id': 'count', 'resolution_time_hours': ['mean', 'min', 'max']}).round(1), use_container_width=True)
 
-with tab3:
+with tab3: # 
     search_term = st.text_input("Search descriptions")
     display_df = filtered_df[filtered_df['description'].str.contains(search_term, case=False, na=False)] if search_term else filtered_df
     sort_col = st.selectbox("Sort by", ['created_at', 'priority', 'status', 'assigned_to'])
@@ -145,9 +227,8 @@ with tab3:
     csv = display_df.to_csv(index=False)
     st.download_button("Download CSV", data=csv, file_name=f"it_tickets_{datetime.now().strftime('%Y%m%d')}.csv")
 
-# ---------------------------
 # NAVIGATION / LOGOUT
-# ---------------------------
+
 st.divider()
 col1, col2, col3 = st.columns(3)
 col1.page_link("pages/it_tickets.py", label="Cyber Incidents")

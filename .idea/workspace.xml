@@ -5,19 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="73498483-01e0-40c9-8eed-0e6df2930f67" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.streamlit/secrets.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project_app/data/datasets.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/project_app/data/tickets.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DATA/erick's Ai.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.streamlit/secrets.toml" beforeDir="false" afterPath="$PROJECT_DIR$/.streamlit/secrets.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Home.py" beforeDir="false" afterPath="$PROJECT_DIR$/Home.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pages/Datasets_metadata.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Datasets_metadata.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/cyber_incidents.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/cyber_incidents.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pages/it_tickets.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/it_tickets.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project_app/Authentication_system.py" beforeDir="false" afterPath="$PROJECT_DIR$/project_app/Authentication_system.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project_app/incidents.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Report.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Report.docx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project_app/services/users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/project_app/services/users.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/~$Report.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/~WRL0905.tmp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

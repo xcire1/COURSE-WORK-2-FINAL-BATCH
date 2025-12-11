@@ -1,4 +1,3 @@
 erick,$2b$12$/J006wW5gzciM0J2eQQOiORQzwBUzj.bDCVmrVEOYshR5icktlO36,admin
 xcire,$2b$12$Brs055AUd/9zp3oprFaZ7Ovhp2.FOi.6/bz.tIPTHgLrJk3IxjM9q,user
 Admin,$2b$12$ZhlRaAtHPEHxnuZ25AbKwuOo4gXiNSmt7cMFRPoSVm9LAlTb2jV8y,admin
-wongani ulaya,$2b$12$qRUc1ZZ8R64JagkYKXqVmuu/WzeggU0/ComT846c204p1jbkpQq.i,user

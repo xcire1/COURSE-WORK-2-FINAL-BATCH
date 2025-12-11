@@ -91,9 +91,9 @@ if st.session_state.logged_in:
 
     st.stop()
 
-# -------------------------
+
 # Login / Register Tabs
-# -------------------------
+
 st.info("Please log in to continue.")
 tab_login, tab_register = st.tabs(["Login", "Register"])
 
